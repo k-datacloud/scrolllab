@@ -12,11 +12,6 @@ import vertexShader from "../shaders/vertex.glsl?raw";
 import fragmentShader from "../shaders/fragment.glsl?raw";
 
 const mainScript = () => {
-  // 慣性スクロール
-  const scrollArea = document.querySelector(".scrollable");
-  // ボディの高さがなくなるのでコンテンツ分指定する
-  document.body.style.height = `${scrollArea.getBoundingClientRect().height}px`;
-
   const header = document.querySelector(".header");
   const headerNav = header.querySelector(".header__nav");
   const headerTitle = document.querySelector(".header__title");
@@ -224,7 +219,6 @@ const mainScript = () => {
   // 毎フレーム呼び出す
   const loop = () => {
     updateScroll();
-    scrollArea.style.transform = `translate3d(0,${-currentScrollY}px,0)`;
     for (const plane of imagePlaneArray) {
       plane.update(scrollOffset);
     }
