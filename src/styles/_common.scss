@@ -1,0 +1,141 @@
+$breakpoints: (
+  "sm": 480px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1440px,
+  "xxl": 1920px,
+);
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  }
+}
+
+.body {
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  color: #222222;
+  overscroll-behavior: "none";
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.scrollable {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.l-outer {
+  width: 100%;
+  padding-left: clamp(20px, calc(-6.761px + 7.136vw), 96px);
+  padding-right: clamp(20px, calc(-6.761px + 7.136vw), 96px);
+  margin: 0 auto;
+}
+
+.text-wrapper {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.webgl-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.webgl-canvas__body {
+  width: 100%;
+  height: 100%;
+}
+
+/* 画像リスト用のスタイル */
+.container {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.webgl-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.webgl-canvas__body {
+  width: 100%;
+  height: 100%;
+}
+
+.image-list {
+  width: 800px;
+  margin: 0 auto;
+  padding: 180px 0;
+}
+
+.image-item {
+  width: 100%;
+}
+
+.image-item:not(:first-of-type) {
+  margin-top: 180px;
+}
+
+.image-wrapper {
+  display: block;
+  width: 100%;
+  height: 500px;
+}
+
+.image-wrapper > img {
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: "Bruno Ace", sans-serif;
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__title {
+    will-change: transform;
+  }
+
+  &__title-char {
+    display: inline-block;
+    letter-spacing: 0.05em;
+    font-size: clamp(3rem, 1.4155rem + 6.7606vw, 7.5rem);
+  }
+
+  .header-list {
+    display: flex;
+    gap: 40px;
+  }
+}

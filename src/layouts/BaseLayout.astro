@@ -1,0 +1,45 @@
+---
+import "../styles/reset.css";
+import Header from "../components/Header.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- <link rel="icon" type="image/x-icon" href="image/icon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="img/apple-touch.png" sizes="180x180" />
+
+    <link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="img/favicon-16.png" sizes="16x16" /> -->
+
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <title>ScrollLab</title>
+  </head>
+  <body class="body">
+    <Header />
+    <div class="webgl-canvas">
+      <canvas id="webgl-canvas" class="webgl-canvas__body"></canvas>
+    </div>
+    <main class="main">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<script>
+  import mainScript from "../scripts/main.js";
+  mainScript();
+</script>
