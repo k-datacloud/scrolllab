@@ -10,8 +10,20 @@ import {
 } from "three";
 import vertexShader from "../shaders/vertex.glsl?raw";
 import fragmentShader from "../shaders/fragment.glsl?raw";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "lenis";
 
 const mainScript = () => {
+  const runLenis = () => {
+    const lenis = new Lenis({
+      autoRaf: true,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easing equation
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+  };
+  runLenis();
   const header = document.querySelector(".header");
   const headerNav = header.querySelector(".header__nav");
   const headerTitle = document.querySelector(".header__title");
@@ -93,7 +105,7 @@ const mainScript = () => {
         "-=2"
       );
   };
-  openingAnimation();
+  // openingAnimation();
 
   // スクロール追従
   let targetScrollY = 0; // 本来のスクロール位置
@@ -249,6 +261,57 @@ const mainScript = () => {
   });
 
   main();
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const scrollList = document.querySelector(".p-top-scroll__list");
+  const scrollListItems = [...scrollList.querySelectorAll("li div")];
+  const scrollListOverlay = scrollList.querySelectorAll(".overlay");
+  console.log(scrollListItems);
+
+  gsap.set(scrollListItems.slice(0, -1), {
+    scale: 1,
+    rotate: 0,
+    rotateX: 0,
+  });
+
+  gsap.set(scrollListOverlay, {
+    opacity: 0,
+  });
+
+  scrollListItems.slice(0, -1).forEach((el, index) => {
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: "top top", // sticky した瞬間
+        end: "+=300", // どれくらいスクロールしたら完成か
+        scrub: true,
+        markers: true, // デバッグ用
+      },
+    });
+    timeline.to(el, {
+      scale: 0.92,
+      rotate: -5,
+      rotateX: 7,
+      ease: "none",
+    });
+  });
+
+  // scrollListItems.forEach((el, index) => {
+  //   ScrollTrigger.create({
+  //     trigger: scrollList,
+  //     start: "top top",
+  //     end: "bottom bottom",
+  //     markers: true,
+  //     scrub: true,
+  //     onEnter: () => {
+  //       gsap.to(scrollListItems[index], {
+  //         scale: 0.8,
+  //         rotate: -10,
+  //       });
+  //     },
+  //   });
+  // });
 };
 
 export default mainScript;

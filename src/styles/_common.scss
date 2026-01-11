@@ -17,8 +17,7 @@ $breakpoints: (
 }
 
 .body {
-  font-size: 16px;
-  font-family: "Inter", sans-serif;
+  // font-family: "Inter", sans-serif;
   color: #222222;
   overscroll-behavior: none;
 }
@@ -114,6 +113,7 @@ $breakpoints: (
 .header {
   width: 100%;
   position: fixed;
+  z-index: 9999;
   top: 0;
   left: 0;
   font-family: "Bruno Ace", sans-serif;

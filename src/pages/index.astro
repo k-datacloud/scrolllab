@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
 import "../styles/top.scss";
 ---
 
@@ -10,7 +11,7 @@ import "../styles/top.scss";
     </div>
   </section>
 
-  <section class="p-top-list">
+  <section class="p-top-webgl">
     <div class="l-outer">
       <div class="l-inner">
         <ul class="image-list">
@@ -29,6 +30,51 @@ import "../styles/top.scss";
             <a href="" class="image-wrapper">
               <img src="/image/sample-03.jpg" alt="" />
             </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-top-scroll">
+    <div class="bg-[#222222]">
+      <div class="l-inner p-top-scroll__inner">
+        <ul class="p-top-scroll__list h-[300vh] relative">
+          <li
+            class="h-screen sticky top-0 perspective-[1000px] overflow-hidden"
+          >
+            <div
+              class="overlay w-full h-full bg-[#000000] opacity-0 absolute z-10 top-0 left-0"
+            >
+            </div>
+            <div
+              class="flex flex-col justify-center items-center w-full h-full bg-[#ffffff]"
+            >
+              <h2 class="font-bruno text-[6rem] leading-none mb-6">Sample01</h2>
+              <p class="font-bruno text-center">(Keep scroll)</p>
+            </div>
+          </li>
+          <li
+            class="h-screen sticky top-0 perspective-[1000px] overflow-hidden"
+          >
+            <div
+              class="overlay w-full h-full bg-[#000000] opacity-0 absolute z-10 top-0 left-0"
+            >
+            </div>
+            <div
+              class="flex flex-col justify-center items-center w-full h-full bg-[#ffffff]"
+            >
+              <h2 class="font-bruno text-[6rem] leading-none mb-6">Sample02</h2>
+              <p class="font-bruno text-center">(Keep scroll)</p>
+            </div>
+          </li>
+          <li class="h-screen sticky top-0">
+            <div
+              class="flex flex-col justify-center items-center overflow-hidden w-full h-full bg-[#ffffff]"
+            >
+              <h2 class="font-bruno text-[6rem] leading-none mb-6">Sample03</h2>
+              <p class="font-bruno text-center">(Keep scroll)</p>
+            </div>
           </li>
         </ul>
       </div>
