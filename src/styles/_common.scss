@@ -85,7 +85,6 @@ $breakpoints: (
 }
 
 .image-list {
-  width: 800px;
   margin: 0 auto;
   padding: 180px 0;
 }
@@ -120,9 +119,6 @@ $breakpoints: (
   padding-left: 40px;
   padding-right: 40px;
   height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 
   &__title {
     will-change: transform;
