@@ -284,7 +284,7 @@ const mainScript = () => {
       scrollTrigger: {
         trigger: el,
         start: "top top", // sticky した瞬間
-        end: "+=300", // どれくらいスクロールしたら完成か
+        end: "+=400", // どれくらいスクロールしたら完成か
         scrub: true,
         markers: true, // デバッグ用
       },

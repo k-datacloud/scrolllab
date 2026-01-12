@@ -1,0 +1,23 @@
+<footer
+  class="relative h-[800px] bg-[#111111]"
+  style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+>
+  <!-- スクロール量を稼ぐ -->
+  <div class="relative h-[calc(100vh+800px)] -top-[100vh]">
+    <!-- sticky footer 本体 -->
+    <div class="sticky top-[calc(100vh-800px)] h-[800px]">
+      <!-- footer content -->
+      <div class="h-full flex flex-col items-center justify-center">
+        <h2 class="font-bruno text-[#ffffff] text-[120px] leading-none mb-10">
+          Sticky Footer
+        </h2>
+        <p class="text-[#444444] font-bruno tracking-[.2em] mb-20">
+          [ Thank you ]
+        </p>
+        <button class="font-bruno bg-[#00E676] text-center px-8 py-4">
+          Back to top
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
